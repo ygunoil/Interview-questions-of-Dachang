@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			//			公司最近新研发了一种产品，共生产了n件。有m个客户想购买此产品，已知每个顾客出价。为了确保公平，公司决定要以一个固定的价格出售产品。每一个出价不低于要价的客户将会得到产品（每人只买一个），余下的将会被拒绝购买。请你找出能让公司利润最大化的售价。
+			var  n = 3;
+			var  m = 4;
+			var  arr = [2, 8, 10, 7];   //顾客出价
+			var  key = 0,
+				max = 0;
+			var  arr = arr.sort(function(a, b) {
+				return  a - b; //升序
+			});
+			if(n < m) //如供不应求
+			{
+				arr = arr.slice(m - n); //截取出价高的人
+				//console.log(arr);
+			}
+			for(let  i = 0; i < arr.length; i++) {
+				if(max < arr[i] * (arr.length - i)) {
+					max = arr[i] * (arr.length - i);
+					key = arr[i];
+				}
+			}
+			console.log(key);
+		</script>
+	</body>
+
+</html>

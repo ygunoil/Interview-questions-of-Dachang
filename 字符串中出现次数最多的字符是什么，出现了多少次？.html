@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			var  s = 'aaasdaddddddddddaf';
+			var  count = 0,
+				char = ""; //count出现次数char字符
+			var  arr = []; //储存去重后字符
+			function  foo(str) { //去重
+				return  r  = str.split("").filter(function(element, index, self) {
+					return  self.indexOf(element) === index; //输出第一次出现的字符
+				});
+			}
+			arr = foo(s);
+			for(let  i = 0; i < arr.length; i++) {
+				var  n = (s.split(arr[i])).length - 1; //出现次数
+				if(count < n) {
+					count = n;
+					char = arr[i];
+				}
+			}
+			console.log("count:" + count + ",char:" + char)
+		</script>
+	</body>
+
+</html>

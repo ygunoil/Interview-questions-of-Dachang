@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			function  parseQueryString(url) {
+				var  pos  = url.indexOf("?");
+				var  obj  = {};
+				if (pos  != -1) {
+					var  urlstring  = url.slice(pos  + 1);
+					var  urlArr  = urlstring.split("&");
+					var  keyValue  = [];
+					for (var  i  = 0; i  < urlArr.length; i++) {
+						keyValue  = urlArr[i].split("=");
+						obj[keyValue[0]] = keyValue[1];
+					}
+				}
+				return  obj;
+			}
+			console.log(parseQueryString("546456?a=1&b=2"));
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var arr = [];
+			function main(num){
+				if(num === null) return;
+				var n=parseInt(num).toString();
+				s(n)
+			}
+			function s(num){
+				if(num.length > 3){
+					arr[arr.length] = num.slice(-3)
+					s(num.slice(0,-3))
+				}else{
+	 				arr[arr.length] = num
+				}
+			}
+			main(1234567890)
+			console.log(arr.reverse().join(','))
+		</script>
+	</body>
+</html>

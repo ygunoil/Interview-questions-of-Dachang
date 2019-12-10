@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			//			"123456789876543212345678987654321..."的第n位是什么？
+
+			var  k = "1234567898765432"; //最小循环节
+			function  getNum(n) {
+				console.log(k.charAt(n % k.length - 1));
+			}
+			getNum(20);
+		</script>
+	</body>
+
+</html>

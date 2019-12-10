@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			function  titleCase(str) {
+				var  aStr  = str.toLowerCase().split(" ");     //转小写，分割成字符串数组    
+				for(var  i = 0; i < aStr.length; i++) {
+					aStr[i] = aStr[i][0].toUpperCase() + aStr[i].slice(1);   //重新组合字符串元素
+				}
+				var  oString  = aStr.join(" ");    //转成字符串                   
+				return  oString;
+			}
+			console.log(titleCase("I'm a title Case.")); //输出结果：I'm A Title Case.
+		</script>
+	</body>
+
+</html>
