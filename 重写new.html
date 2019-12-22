@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		1.在堆中开辟对象内存空间, 记为obj 
+		2.在obj 中添加__proto__属性并指向 构造函数.prototype 
+		3.将构造函数中的this 指向obj 
+		4.执行构造函数内语句 
+		若构造函数中没有reutrn 或return this或基本类型（number、string、boolean、null、undefined）的值，则返回obj在堆中的内存地址；若return 引用类型，则返回值为这个引用类型
+		<script type="text/javascript">
+			function People(name, age, phone) {
+				this.name = name;
+				this.age = age;
+				this.phone = phone;
+				//若构造函数中`没有reutrn 或return this或基本类型`（number、string、boolean、null、undefined）的值，则返回obj在堆中的内存地址；若`return 引用类型`，则返回值为这个引用类型
+				// return null;//无影响
+				// return {};//返回此对象
+				// return function(){};//返回此函数
+			}
+
+			function _new(...args) {
+				let constructor = args[0]; //获取构造函数
+				let obj = Object.create(constructor.prototype); //创建空对象,并将原型指向构造函数的原型
+				let res = constructor.call(obj, ...args.slice(1)); //call强行将this指向第一个参数
+//				console.log(obj, ...args.slice(1),res)
+				if((typeof res === 'object' || typeof res === 'function') && res != null) {
+					return res;
+				} else {
+					return obj;
+				}
+			}
+
+			let a = _new(People, 'aa', 20, 132456);
+			let na = new People('aa', 20, 132456);
+			console.log(a, na);
+			//运行结果
+//			People {
+//				name: 'aa',
+//				age: 20,
+//				phone: 132456
+//			}
+//			People {
+//				name: 'aa',
+//				age: 20,
+//				phone: 132456
+//			}
+		</script>
+	</body>
+
+</html>
